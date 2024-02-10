@@ -6,6 +6,7 @@ const {postRouter} = require("./Routes/postRoute")
 const jwt = require("jsonwebtoken")
 const app = express()
 const PORT = process.env.PORT
+const cors = require("cors")
 
 
 app.use(express.json())
