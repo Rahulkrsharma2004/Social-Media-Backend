@@ -19,6 +19,9 @@ app.use(cors({
 
 app.use("/users", userRouter)
 app.use("/posts", postRouter)
+app.get("/",(req,res)=>{
+    res.status(200).send('This is The Home Page')
+})
 
 app.listen(PORT, async () => {
     try {
