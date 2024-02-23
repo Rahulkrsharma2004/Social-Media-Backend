@@ -5,9 +5,10 @@ const access_secretKey = process.env.ACCESS_SECRET_KEY
 const refresh_secretKey = process.env.REFRESH_SECRET_KEY
 
 const auth = async (req, res, next) => {
-    // const token = req.cookies.token
+    const token = req.cookies.token
+    console.log("token",token)
     // const refresh_token = req.cookies.REFRESH_TOKEN
-    const token = req.headers.authorization
+    // const token = req.headers.authorization
 
     try {
 
@@ -29,6 +30,7 @@ const auth = async (req, res, next) => {
                         res.cookie("ACCESS_TOKEN", token,cookieOptions)
                         next()
                     } else {
+                        console.log("line 33")
                         res.status(400).send({ "msg": "Now you need to login again" })
                     }
                 })

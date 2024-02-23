@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser')
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:["https://full-stack-backend-beyu.onrender.com"], 
+    origin:["https://elegant-toga-moth.cyclic.app"], 
     credentials:true,
 }))
 

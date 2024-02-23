@@ -39,7 +39,9 @@ userRouter.post("/register", async (req, res) => {
         })
 
     } catch (error) {
+        console.log(error)
         res.status(400).send({ "msge": error })
+        
     }
 })
 
@@ -57,6 +59,7 @@ userRouter.post("/login", async (req, res) => {
                     const refresh_token = jwt.sign({userID:user._id,user:user.name}, refresh_secretKey ,{expiresIn:"7d"});
                     res.cookie("ACCESS_TOKEN",token,cookieOptions)
                     res.cookie("REFRESH_TOKEN",refresh_token,cookieOptions)
+                    console.log("first")
                     res.status(200).send({ "msg": "Login Successful","token":token})
                     
                 } else {
@@ -74,7 +77,7 @@ userRouter.post("/login", async (req, res) => {
     }
 })
 
-// userRouter.post("/logout", auth , async (req, res) => {
+// userRouter.post("/logout",async (req, res) => {
 //     try {   
 //         const token = req.cookies.ACCESS_TOKEN
 //         const blacklistToken = new BlacklistToken({token})
