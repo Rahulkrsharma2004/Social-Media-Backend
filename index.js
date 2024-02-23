@@ -7,10 +7,11 @@ const jwt = require("jsonwebtoken")
 const app = express()
 const PORT = process.env.PORT
 const cors = require("cors")
+const cookieParser = require('cookie-parser')
 
 
 app.use(express.json())
-
+app.use(cookieParser())
 app.use(cors({
     origin:["https://full-stack-backend-beyu.onrender.com"], 
     credentials:true,
